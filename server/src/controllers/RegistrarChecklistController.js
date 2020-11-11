@@ -1,0 +1,100 @@
+const Checklist = require("../models/Checklist");
+const nodemailer = require("nodemailer");
+const { addDaysToDate } = require("../helpers");
+
+module.exports = {
+  async index(req, res) {
+    try {
+      const checklist = await Checklist.findAll();
+      return res.json(checklist);
+    } catch (error) {
+      res.status(400).json({ error: "Nenhum registro encontrado!" });
+    }
+  },
+
+  async store(req, res) {
+    try {
+      const {
+        email,
+        placa,
+        placaCarreta1,
+        placaCarreta2,
+        tipo,
+        numeroRastreador,
+        tecnologia,
+        vinculo,
+        nome,
+        filial,
+        observacao,
+        status,
+        base,
+        usuario,
+      } = req.body;
+      const output = `
+      <p>Resultado Checklist <strong>${placa}</strong> / <strong>${filial}</strong></p>
+      <h1>${status}</h1>
+      <h2>Observação: ${observacao !== undefined ? observacao : "Ok"}</h2>
+      <h3>Dados do checklist</h3>
+      <ul>
+        <li><strong>Placa do Cavalo:</strong> ${placa}</li>
+        <li><strong>Placa da Carreta 1:</strong> ${placaCarreta1}</li>
+        <li><strong>Placa da Carreta 2:</strong> ${placaCarreta2}</li>
+        <li><strong>Tipo de Veículo:</strong> ${tipo}</li>
+        <li><strong>Número do Rastreador:</strong> ${numeroRastreador}</li>
+        <li><strong>Tecnologia:</strong> ${tecnologia}</li>
+        <li><strong>Vínculo do motorista:</strong> ${vinculo}</li>
+        <li><strong>Quem solicitou o teste:</strong> ${nome}</li>
+        <li><strong>Filial:</strong> ${filial}</li>
+        <li><strong>Status:</strong> ${status}</li>
+        <li><strong>Realizado por:</strong> ${base}</li>
+      </ul>
+    `;
+      let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+          user: "ccom.checklists@gmail.com",
+          pass: "ccom092018",
+        },
+      });
+      transporter
+        .sendMail({
+          from: "Checklist CCOM <ccom.checklists@gmail.com>",
+          to: `${email}`,
+          subject: `Checklist veículo: ${placa}`,
+          text: "",
+          html: output,
+        })
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      const checklist = await Checklist.create({
+        placa,
+        placaCarreta1,
+        placaCarreta2,
+        tipo,
+        numeroRastreador,
+        tecnologia,
+        vinculo,
+        nome,
+        filial,
+        observacao,
+        status,
+        base,
+        usuario,
+        data: Date.now(),
+        validade: addDaysToDate(30),
+      });
+      return res.json(checklist);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ error: "Não foi possível registrar o checklist!" });
+      console.log(error);
+    }
+  },
+};
