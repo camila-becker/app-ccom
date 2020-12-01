@@ -46,6 +46,8 @@ module.exports = {
         <li><strong>Tipo de Veículo:</strong> ${tipo}</li>
         <li><strong>Número do Rastreador:</strong> ${numeroRastreador}</li>
         <li><strong>Tecnologia:</strong> ${tecnologia}</li>
+        <li><strong>Nome do Motorista:</strong> ${motorista}</li>
+        <li><strong>Telefone do Motorista:</strong> ${telefone}</li>
         <li><strong>Vínculo do motorista:</strong> ${vinculo}</li>
         <li><strong>Quem solicitou o teste:</strong> ${nome}</li>
         <li><strong>Filial:</strong> ${filial}</li>
