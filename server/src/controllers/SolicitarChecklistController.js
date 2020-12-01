@@ -9,7 +9,7 @@ module.exports = {
         where: {
           status: "Aberto",
         },
-        order: [["data", "DESC"]],
+        order: [["data", "ASC"]],
       });
       return res.json(checklist);
     } catch (error) {
