@@ -41,8 +41,8 @@ module.exports = {
       <h3>Dados do checklist</h3>
       <ul>
         <li><strong>Placa do Cavalo:</strong> ${placa}</li>
-        <li><strong>Placa da Carreta 1:</strong> ${placaCarreta1}</li>
-        <li><strong>Placa da Carreta 2:</strong> ${placaCarreta2}</li>
+        <li><strong>Placa da Carreta 1:</strong> ${placaCarreta1 !== undefined ? placaCarreta1 : ''}</li>
+        <li><strong>Placa da Carreta 2:</strong> ${placaCarreta2 !== undefined ? placaCarreta2 : ''}</li>
         <li><strong>Tipo de Veículo:</strong> ${tipo}</li>
         <li><strong>Número do Rastreador:</strong> ${numeroRastreador}</li>
         <li><strong>Tecnologia:</strong> ${tecnologia}</li>
@@ -51,7 +51,7 @@ module.exports = {
         <li><strong>Vínculo do motorista:</strong> ${vinculo}</li>
         <li><strong>Quem solicitou o teste:</strong> ${nome}</li>
         <li><strong>Filial:</strong> ${filial}</li>
-        <li><strong>Observação:</strong> ${observacao}</li>
+        <li><strong>Observação:</strong> ${observacao !== undefined ? observacao : ''}</li>
       </ul>
     `;
       let transporter = nodemailer.createTransport({
