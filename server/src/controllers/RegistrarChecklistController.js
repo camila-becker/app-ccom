@@ -25,7 +25,7 @@ module.exports = {
         vinculo,
         nome,
         filial,
-        observacao,
+        motivo,
         status,
         base,
         usuario,
@@ -33,7 +33,7 @@ module.exports = {
       const output = `
       <p>Resultado Checklist <strong>${placa}</strong> / <strong>${filial}</strong></p>
       <h1>${status}</h1>
-      <h2>Observação: ${observacao !== undefined ? observacao : "Ok"}</h2>
+      <h2>Motivo: ${motivo !== undefined ? motivo : ""}</h2>
       <h3>Dados do checklist</h3>
       <ul>
         <li><strong>Placa do Cavalo:</strong> ${placa}</li>
@@ -82,7 +82,7 @@ module.exports = {
         vinculo,
         nome,
         filial,
-        observacao,
+        motivo,
         status,
         base,
         usuario,
