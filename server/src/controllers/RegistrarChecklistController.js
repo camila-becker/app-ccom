@@ -31,9 +31,9 @@ module.exports = {
         usuario,
       } = req.body;
       const output = `
-      <p>Resultado Checklist <strong>${placa}</strong> / <strong>${filial}</strong></p>
+      <h3>Resultado Checklist <strong>${placa}</strong> / <strong>${filial}</strong></h3>
       <h1>${status}</h1>
-      <h2>Motivo: ${motivo !== undefined ? motivo : ""}</h2>
+      <h2>Observação: ${motivo !== undefined ? motivo : ""}</h2>
       <h3>Dados do checklist</h3>
       <ul>
         <li><strong>Placa do Cavalo:</strong> ${placa}</li>
