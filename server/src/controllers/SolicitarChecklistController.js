@@ -100,7 +100,7 @@ module.exports = {
         filial,
         observacao,
         status,
-        data: date,
+        data: date(),
       });
       return res.json(checklist);
     } catch (error) {
