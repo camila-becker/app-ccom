@@ -89,6 +89,7 @@ module.exports = {
         data: Date.now(),
         validade: addDaysToDate(30),
       });
+      console.log(checklist)
       return res.json(checklist);
     } catch (error) {
       res
