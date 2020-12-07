@@ -61,6 +61,9 @@ module.exports = {
       usuario: {
         type: Sequelize.STRING,
       },
+      plataforma: {
+        type: Sequelize.STRING,
+      },
       created_at: {
         type: Sequelize.DATEONLY,
         allowNull: false,

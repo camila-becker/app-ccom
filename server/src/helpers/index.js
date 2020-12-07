@@ -11,7 +11,7 @@ function addDaysToDate(days) {
   );
 }
 
-function date(){
+function date() {
   let currentDate = new Date();
   let day = String(currentDate.getDate()).padStart(2, "0");
   let month = String(currentDate.getMonth() + 1).padStart(2, "0");
@@ -20,7 +20,11 @@ function date(){
   let minutes = currentDate.getMinutes();
   let seconds = currentDate.getSeconds();
 
-  return (currentDate = `${day}/${month}/${year} - ${hour}:${minutes}:${seconds}`);
-};
+  let hourF = hour < 10 ? `0${hour}` : hour;
+  let minutesF = minutes < 10 ? `0${minutes}` : minutes;
+  let secondsF = seconds < 10 ? `0${seconds}` : seconds;
+ 
+  return (currentDate = `${day}/${month}/${year} - ${hourF}:${minutesF}:${secondsF}`);
+}
 
 module.exports = { addDaysToDate, date };

@@ -19,6 +19,7 @@ class Checklist extends Model {
         data: DataTypes.DATE,
         validade: DataTypes.STRING,
         usuario: DataTypes.STRING,
+        plataforma: DataTypes.STRING,
       },
       {
         sequelize,

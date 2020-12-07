@@ -29,6 +29,7 @@ module.exports = {
         status,
         base,
         usuario,
+        plataforma,
       } = req.body;
       const output = `
       <h3>Resultado Checklist <strong>${placa}</strong> / <strong>${filial}</strong></h3>
@@ -86,6 +87,7 @@ module.exports = {
         status,
         base,
         usuario,
+        plataforma,
         data: Date.now(),
         validade: addDaysToDate(30),
       });

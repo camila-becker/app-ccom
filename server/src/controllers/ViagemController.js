@@ -56,20 +56,32 @@ module.exports = {
           pass: "ccom2020",
         },
       });
-      transporter
-        .sendMail({
-          from: "Viagem Vazio <ccom.viagens@gmail.com>",
-          to: `alexsandro.velho@modular.com.br, everson.fernandes@modular.com.br, ccom.controle@modular.com.br, frota.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, frota.monitoramento@modular.com.br`,
-          subject: `Veículo em viagem vazio - ${placa}`,
-          text: "",
-          html: output,
-        })
-        .then((message) => {
-          console.log(message);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      if (
+        placa === "" ||
+        motorista === "" ||
+        estadoOrigem === "" ||
+        estadoDestino === "" ||
+        distancia === "" ||
+        nome === "" ||
+        jornada === ""
+      ) {
+        return res.status(500).json({ message: "Informe todos os dados!" });
+      } else {
+        transporter
+          .sendMail({
+            from: "Viagem Vazio <ccom.viagens@gmail.com>",
+            to: `alexsandro.velho@modular.com.br, everson.fernandes@modular.com.br, ccom.controle@modular.com.br, frota.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, frota.monitoramento@modular.com.br`,
+            subject: `Veículo em viagem vazio - ${placa}`,
+            text: "",
+            html: output,
+          })
+          .then((message) => {
+            console.log(message);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
       const viagem = await Viagem.create({
         placa,
         motorista,
