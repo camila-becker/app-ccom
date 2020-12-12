@@ -70,6 +70,35 @@ module.exports = {
           pass: "ccom092018",
         },
       });
+      if (
+        email === "" &&
+        placa === "" &&
+        tipo === "" &&
+        numeroRastreador === "" &&
+        tecnologia === "" &&
+        vinculo === "" &&
+        nome === "" &&
+        motorista === "" &&
+        telefone === "" &&
+        filial === ""
+      ) {
+        return res.status(500).json({ message: "Informe todos os dados!" });
+      } else {
+        transporter
+          .sendMail({
+            from: "Checklist CCOM <ccom.checklists@gmail.com>",
+            to: `${email}`,
+            subject: `Checklist veículo: ${placa}`,
+            text: "",
+            html: output,
+          })
+          .then((message) => {
+            console.log(message);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
       const checklist = await SolicitarChecklist.create({
         protocolo,
         email,
@@ -89,20 +118,6 @@ module.exports = {
         data: date(),
       });
       res.json(checklist);
-      transporter
-      .sendMail({
-        from: "Checklist CCOM <ccom.checklists@gmail.com>",
-        to: `${email}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
-        subject: `Checklist veículo: ${placa}`,
-        text: "",
-        html: output,
-      })
-      .then((message) => {
-        console.log(message);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     } catch (error) {
       res.status(500).json({ message: error });
     }

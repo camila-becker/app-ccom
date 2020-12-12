@@ -57,12 +57,12 @@ module.exports = {
         },
       });
       if (
-        placa === "" ||
-        motorista === "" ||
-        estadoOrigem === "" ||
-        estadoDestino === "" ||
-        distancia === "" ||
-        nome === "" ||
+        placa === "" &&
+        motorista === "" &&
+        estadoOrigem === "" &&
+        estadoDestino === "" &&
+        distancia === "" &&
+        nome === "" &&
         jornada === ""
       ) {
         return res.status(500).json({ message: "Informe todos os dados!" });
@@ -70,7 +70,7 @@ module.exports = {
         transporter
           .sendMail({
             from: "Viagem Vazio <ccom.viagens@gmail.com>",
-            to: `alexsandro.velho@modular.com.br, everson.fernandes@modular.com.br, ccom.controle@modular.com.br, frota.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, frota.monitoramento@modular.com.br`,
+            to: `camila.becker01@gmail.com`,
             subject: `Veículo em viagem vazio - ${placa}`,
             text: "",
             html: output,
