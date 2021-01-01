@@ -33,18 +33,28 @@ module.exports = {
         status,
       } = req.body;
       const output = `
-      <p>Frota - Viagem vazio <strong>${placa}</strong></p>
+      <p>Frota - Viagem vazio <strong>${placa ? placa : ""}</strong></p>
       <h3>Dados da viagem</h3>
       <ul>
-        <li><strong>Autorizado por:</strong> ${nome}</li>
-        <li><strong>Placa do Cavalo:</strong> ${placa}</li>
-        <li><strong>Estado de Origem:</strong> ${estadoOrigem}</li>
-        <li><strong>Cidade de Origem:</strong> ${cidadeOrigem}</li>
-        <li><strong>Estado de Destino:</strong> ${estadoDestino}</li>
-        <li><strong>Cidade de Destino:</strong> ${cidadeDestino}</li>
-        <li><strong>Distancia a percorrer:</strong> ${distancia}</li>
-        <li><strong>Observação:</strong> ${observacao}</li>
-        <li><strong>Controle de Jornada:</strong> ${jornada}</li>
+        <li><strong>Autorizado por:</strong> ${nome ? nome : ""}</li>
+        <li><strong>Placa do Cavalo:</strong> ${placa ? placa : ""}</li>
+        <li><strong>Estado de Origem:</strong> ${
+          estadoOrigem ? estadoOrigem : ""
+        }</li>
+        <li><strong>Cidade de Origem:</strong> ${
+          cidadeOrigem ? cidadeOrigem : ""
+        }</li>
+        <li><strong>Estado de Destino:</strong> ${
+          estadoDestino ? estadoDestino : ""
+        }</li>
+        <li><strong>Cidade de Destino:</strong> ${
+          cidadeDestino ? cidadeDestino : ""
+        }</li>
+        <li><strong>Distancia a percorrer:</strong> ${
+          distancia ? distancia : ""
+        }</li>
+        <li><strong>Observação:</strong> ${observacao ? observacao : ""}</li>
+        <li><strong>Controle de Jornada:</strong> ${jornada ? jornada : ""}</li>
       </ul>
     `;
       let transporter = nodemailer.createTransport({
