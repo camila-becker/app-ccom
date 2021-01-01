@@ -12,7 +12,7 @@ module.exports = {
       const atendimento = await Atendimentos.findAll({
         where: {
           createdAt: {
-            [Op.or]: {
+            [Op.and]: {
               [Op.gte]: dataInicio,
               [Op.lte]: dataFim,
             },
