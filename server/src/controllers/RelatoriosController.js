@@ -31,7 +31,7 @@ module.exports = {
       const ocorrencia = await Ocorrencias.findAll({
         where: {
           createdAt: {
-            [Op.or]: {
+            [Op.and]: {
               [Op.gte]: dataInicio,
               [Op.lte]: dataFim,
             },
@@ -50,7 +50,7 @@ module.exports = {
       const checklist = await Checklist.findAll({
         where: {
           createdAt: {
-            [Op.or]: {
+            [Op.and]: {
               [Op.gte]: dataInicio,
               [Op.lte]: dataFim,
             },
@@ -69,7 +69,7 @@ module.exports = {
       const viagem = await Viagem.findAll({
         where: {
           createdAt: {
-            [Op.or]: {
+            [Op.and]: {
               [Op.gte]: dataInicio,
               [Op.lte]: dataFim,
             },
@@ -88,7 +88,7 @@ module.exports = {
       const ddr = await DDRModel.findAll({
         where: {
           createdAt: {
-            [Op.or]: {
+            [Op.and]: {
               [Op.gte]: dataInicio,
               [Op.lte]: dataFim,
             },
