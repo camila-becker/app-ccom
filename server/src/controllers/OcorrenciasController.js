@@ -55,4 +55,14 @@ module.exports = {
       res.status(500).json({ message: error });
     }
   },
+
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const ocorrencia = await Ocorrencias.destroy({ where: { id } });
+      return res.json(ocorrencia);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };

@@ -49,6 +49,13 @@ routes.post(
   OcorrenciasController.store
 );
 
+//Deletar ocorrência
+routes.delete(
+  "/api/ocorrencia/:id",
+  AuthController.validateSession,
+  OcorrenciasController.delete
+);
+
 /* Usuários */
 //Pesquisar usuario
 routes.get("/api/usuarios", UsuariosController.index);
