@@ -25,7 +25,7 @@ module.exports = {
         vinculo,
         nome,
         filial,
-        motivo,
+        observacao,
         status,
         base,
         usuario,
@@ -34,7 +34,7 @@ module.exports = {
       const output = `
       <h3>Resultado Checklist <strong>${placa}</strong> / <strong>${filial}</strong></h3>
       <h1>${status}</h1>
-      <h3>Observação: ${motivo !== undefined ? motivo : ""}</h3>
+      <h3>Observação: ${observacao !== undefined ? observacao : ""}</h3>
       <h3>Dados do checklist</h3>
       <ul>
         <li><strong>Placa do Cavalo:</strong> ${placa}</li>
@@ -83,7 +83,7 @@ module.exports = {
         vinculo,
         nome,
         filial,
-        motivo,
+        observacao,
         status,
         base,
         usuario,
@@ -91,7 +91,7 @@ module.exports = {
         data: Date.now(),
         validade: addDaysToDate(30),
       });
-      console.log(checklist)
+      console.log(checklist);
       return res.json(checklist);
     } catch (error) {
       res
