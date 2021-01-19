@@ -70,54 +70,39 @@ module.exports = {
           pass: "ccom092018",
         },
       });
-      if (
-        email == undefined ||
-        placa == undefined ||
-        tipo == undefined ||
-        numeroRastreador == undefined ||
-        tecnologia == undefined ||
-        vinculo == undefined ||
-        nome == undefined ||
-        motorista == undefined ||
-        telefone == undefined ||
-        filial == undefined
-      ) {
-        console.log("Ocorreu um erro na validação!");
-      } else {
-        const checklist = await SolicitarChecklist.create({
-          protocolo,
-          email,
-          placa,
-          placaCarreta1,
-          placaCarreta2,
-          tipo,
-          numeroRastreador,
-          tecnologia,
-          vinculo,
-          nome,
-          motorista,
-          telefone,
-          filial,
-          observacao,
-          status,
-          data: date(),
+      const checklist = await SolicitarChecklist.create({
+        protocolo,
+        email,
+        placa,
+        placaCarreta1,
+        placaCarreta2,
+        tipo,
+        numeroRastreador,
+        tecnologia,
+        vinculo,
+        nome,
+        motorista,
+        telefone,
+        filial,
+        observacao,
+        status,
+        data: date(),
+      });
+      res.json(checklist);
+      transporter
+        .sendMail({
+          from: "Checklist CCOM <ccom.checklists@gmail.com>",
+          to: `${email}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
+          subject: `Checklist veículo: ${placa}`,
+          text: "",
+          html: output,
+        })
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((err) => {
+          console.log(err);
         });
-        res.json(checklist);
-        transporter
-          .sendMail({
-            from: "Checklist CCOM <ccom.checklists@gmail.com>",
-            to: `${email}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
-            subject: `Checklist veículo: ${placa}`,
-            text: "",
-            html: output,
-          })
-          .then((message) => {
-            console.log(message);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
     } catch (error) {
       res.status(500).json({ message: error });
     }
