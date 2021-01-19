@@ -13,7 +13,7 @@ class Checklist extends Model {
         vinculo: DataTypes.STRING,
         nome: DataTypes.STRING,
         filial: DataTypes.STRING,
-        observacao: DataTypes.STRING,
+        motivo: DataTypes.STRING,
         status: DataTypes.STRING,
         base: DataTypes.STRING,
         data: DataTypes.DATE,

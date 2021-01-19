@@ -43,7 +43,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      observacao: {
+      motivo: {
         type: Sequelize.STRING,
       },
       status: {
