@@ -71,16 +71,16 @@ module.exports = {
         },
       });
       if (
-        email == "" ||
-        placa == "" ||
-        tipo == "" ||
-        numeroRastreador == "" ||
-        tecnologia == "" ||
-        vinculo == "" ||
-        nome == "" ||
-        motorista == "" ||
-        telefone == "" ||
-        filial == ""
+        email == undefined ||
+        placa == undefined ||
+        tipo == undefined ||
+        numeroRastreador == undefined ||
+        tecnologia == undefined ||
+        vinculo == undefined ||
+        nome == undefined ||
+        motorista == undefined ||
+        telefone == undefined ||
+        filial == undefined
       ) {
         console.log("Ocorreu um erro na validação!");
       } else {
