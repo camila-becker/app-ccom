@@ -90,19 +90,19 @@ module.exports = {
       });
       res.json(checklist);
       transporter
-      .sendMail({
-        from: "Checklist CCOM <ccom.checklists@gmail.com>",
-        to: `${email}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
-        subject: `Checklist veículo: ${placa}`,
-        text: "",
-        html: output,
-      })
-      .then((message) => {
-        console.log(message);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .sendMail({
+          from: "Checklist CCOM <ccom.checklists@gmail.com>",
+          to: `${email}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
+          subject: `Checklist veículo: ${placa}`,
+          text: "",
+          html: output,
+        })
+        .then((message) => {
+          console.log(message);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (error) {
       res.status(500).json({ message: error });
     }
