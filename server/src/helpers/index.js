@@ -1,6 +1,5 @@
-const newDate = new Date();
-
 function addDaysToDate(days) {
+  const newDate = new Date();
   let datePlusDays = new Date(newDate.getTime() + days * 24 * 60 * 60 * 1000);
   return (
     datePlusDays.getDate() +
@@ -23,7 +22,7 @@ function date() {
   let hourF = hour < 10 ? `0${hour}` : hour;
   let minutesF = minutes < 10 ? `0${minutes}` : minutes;
   let secondsF = seconds < 10 ? `0${seconds}` : seconds;
- 
+
   return (currentDate = `${day}/${month}/${year} - ${hourF}:${minutesF}:${secondsF}`);
 }
 
