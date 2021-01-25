@@ -62,7 +62,7 @@ module.exports = {
       transporter
         .sendMail({
           from: "Checklist CCOM <ccom.checklists@gmail.com>",
-          to: `${email}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
+          to: `${email}, ${email2}, ccom.controle@modular.com.br, ccom.gestao@modular.com.br`,
           subject: `Checklist veículo: ${placa}`,
           text: "",
           html: output,

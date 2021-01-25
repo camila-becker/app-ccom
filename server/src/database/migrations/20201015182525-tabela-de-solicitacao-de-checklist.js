@@ -15,6 +15,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
+      email2: {
+        type: Sequelize.STRING,
+      },
       placa: {
         type: Sequelize.STRING,
       },

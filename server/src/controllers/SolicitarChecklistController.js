@@ -22,6 +22,7 @@ module.exports = {
       const {
         protocolo,
         email,
+        email2,
         placa,
         placaCarreta1,
         placaCarreta2,
@@ -73,6 +74,7 @@ module.exports = {
       const checklist = await SolicitarChecklist.create({
         protocolo,
         email,
+        email2,
         placa,
         placaCarreta1,
         placaCarreta2,

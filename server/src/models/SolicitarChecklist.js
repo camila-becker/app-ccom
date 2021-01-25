@@ -6,6 +6,7 @@ class SolicitarChecklist extends Model {
       {
         protocolo: DataTypes.STRING,
         email: DataTypes.STRING,
+        email2: DataTypes.STRING,
         placa: DataTypes.STRING,
         placaCarreta1: DataTypes.STRING,
         placaCarreta2: DataTypes.STRING,
