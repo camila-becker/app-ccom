@@ -16,6 +16,7 @@ module.exports = {
     try {
       const {
         email,
+        email2,
         placa,
         placaCarreta1,
         placaCarreta2,
