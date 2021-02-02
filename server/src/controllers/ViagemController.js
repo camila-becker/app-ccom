@@ -69,7 +69,11 @@ module.exports = {
       transporter
         .sendMail({
           from: "Viagem Vazio <ccom.viagens@gmail.com>",
+<<<<<<< HEAD
           to: `alexsandro.velho@modular.com.br, everson.fernandes@modular.com.br, adilson.eichendorf@modular.com.br, frota.controle@modular.com.br, frota.monitoramento@modular.com.br, gabriel.maia@modular.com.br, ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br`,
+=======
+          to: `alexsandro.velho@modular.com.br, everson.fernandes@modular.com.br, adilson.eichendorf@modular.com.br, frota.controle@modular.com.br, gabriel.maia@modular.com.br, frota.monitoramento@modular.com.br, ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br`,
+>>>>>>> 39f6a288da345fc2550a657387c0655a70ad89c6
           subject: `Veículo em viagem vazio - ${placa}`,
           text: "",
           html: output,
