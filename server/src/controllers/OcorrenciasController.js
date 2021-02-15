@@ -60,6 +60,8 @@ module.exports = {
   async storeOcOperacional(req, res) {
     const emailOcorrencia = process.env.EMAIL_OC;
     const senhaOcorrencia = process.env.SENHA_OC;
+    console.log(emailOcorrencia);
+    console.log(senhaOcorrencia);
     try {
       const {
         placa,
@@ -89,8 +91,8 @@ module.exports = {
         port: 465,
         secure: true,
         auth: {
-          user: emailOcorrencia,
-          pass: senhaOcorrencia,
+          user: "ccom.ocorrencias@gmail.com",
+          pass: "ccom1234",
         },
       });
       transporter
