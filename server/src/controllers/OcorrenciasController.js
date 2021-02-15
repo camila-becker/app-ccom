@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const emailPorFilial = require("../helpers/emailOcorrencia");
 const Ocorrencias = require("../models/Ocorrencias");
 
 module.exports = {
@@ -87,7 +88,7 @@ module.exports = {
         Informamos que esse tipo de ocorrência é <strong>Quebra de Gerenciamento de Risco.</strong>      
       </p>
       <p>
-        Caso aconteça algum sinistro, não haverá cobertura de seguro.
+        Caso aconteça algum sinistro, <strong>NÃO</strong> haverá cobertura de seguro.
       </p>
       <p>Não é necessário responder esse e-mail, apenas corrigir o problema o mais breve possível.</p>
     `;
@@ -103,8 +104,9 @@ module.exports = {
       transporter
         .sendMail({
           from: "ccom.ocorrencias@gmail.com",
-          to: `camila.becker01@gmail.com`,
-          subject: `Registro de Ocorrência - ${motivo} - ${placa} / ${origem}`,
+          to: `${emailPorFilial(origem)}`,
+          cc: "camila.becker01@gmail.com",
+          subject: `Registro de Ocorrência - ${motivo} ${placa} / ${origem}`,
           text: "",
           html: output,
         })
