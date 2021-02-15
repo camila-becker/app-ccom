@@ -1,7 +1,7 @@
 function emailPorFilial(filial) {
   switch (filial) {
     case "01 - CAN":
-      return "camila.becker01@gmail.com";
+      return "expedicao@modular.com.br, coletas@modular.com.br, luiz.oliveira@modular.com.br, felipe.ranzan@modular.com.br, lipe@modular.com.br";
     case "03 - SAO":
       return "expedicaosp@modular.com.br, coletassp@modular.com.br, marcos.marques@modular.com.br, eder@modular.com.br";
     case "04 - RIO":
@@ -30,8 +30,6 @@ function emailPorFilial(filial) {
       return "sacmcz@modular.com.br, danilo.lima@modular.com.br";
     case "94 - AAX":
       return "expedicao.aax@modular.com.br, jose.neto@modular.com.br";
-    case "07 - BLU":
-      return "camila.becker01@gmail.com";
   }
 }
 

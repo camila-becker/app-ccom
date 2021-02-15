@@ -131,4 +131,13 @@ module.exports = {
       console.log(error);
     }
   },
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      const checklist = await SolicitarChecklist.destroy({ where: { id } });
+      return res.json(checklist);
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };

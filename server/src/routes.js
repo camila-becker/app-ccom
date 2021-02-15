@@ -97,6 +97,12 @@ routes.post("/api/checklist", SolicitarChecklistController.store);
 routes.get("/api/checklist/:id", SolicitarChecklistController.show);
 //Alterar o status do checklist
 routes.put("/api/checklist/:id", SolicitarChecklistController.changeStatus);
+//Deletar solicitação
+routes.delete(
+  "/api/checklist/:id",
+  AuthController.validateSession,
+  SolicitarChecklistController.delete
+);
 
 /* Relatórios */
 //Relatório de Atendimento
