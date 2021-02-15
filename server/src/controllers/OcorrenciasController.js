@@ -58,10 +58,6 @@ module.exports = {
   },
 
   async storeOcOperacional(req, res) {
-    const emailOcorrencia = process.env.EMAIL_OC;
-    const senhaOcorrencia = process.env.SENHA_OC;
-    console.log(emailOcorrencia);
-    console.log(senhaOcorrencia);
     try {
       const {
         placa,
@@ -74,7 +70,7 @@ module.exports = {
         usuario,
       } = req.body;
       const output = `
-      <p>${motivo} / ${origem}<strong>${placa ? placa : ""}</strong></p>
+      <p>${motivo} - ${origem} / <strong>${placa ? placa : ""}</strong></p>
       <h3>Dados da ocorrência</h3>
       <ul>
         <li><strong>Placa:</strong> ${placa ? placa : ""}</li>
@@ -83,8 +79,17 @@ module.exports = {
         <li><strong>Valor da carga:</strong> ${valor ? valor : ""}</li>
         <li><strong>Ocorrência:</strong> ${motivo ? motivo : ""}</li>
       </ul>
-      <p>E-mail informativo sobre o registro de ocorrência do tipo ${motivo} para a filial ${origem}</p>
-      <p>Não é necessário responder esse e-mail, apenas corrigir o problema.</p>
+      <p>
+        E-mail informativo sobre o registro de ocorrência do tipo <strong>${motivo}</strong> 
+        para a filial <strong>${origem}</strong>
+      </p>
+      <p> 
+        Informamos que esse tipo de ocorrência é <strong>Quebra de Gerenciamento de Risco.</strong>      
+      </p>
+      <p>
+        Caso aconteça algum sinistro, não haverá cobertura de seguro.
+      </p>
+      <p>Não é necessário responder esse e-mail, apenas corrigir o problema o mais breve possível.</p>
     `;
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -99,7 +104,7 @@ module.exports = {
         .sendMail({
           from: "ccom.ocorrencias@gmail.com",
           to: `camila.becker01@gmail.com`,
-          subject: `Registro de Ocorrência - ${motivo} / ${placa} / ${origem}`,
+          subject: `Registro de Ocorrência - ${motivo} - ${placa} / ${origem}`,
           text: "",
           html: output,
         })
