@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const emailPorFilial = require("../helpers/emailOcorrencia");
+const { emailPorFilial } = require("../helpers/emailOcorrencia");
 const Ocorrencias = require("../models/Ocorrencias");
 
 module.exports = {

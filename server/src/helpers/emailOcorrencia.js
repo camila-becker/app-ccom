@@ -1,7 +1,7 @@
 function emailPorFilial(filial) {
   switch (filial) {
     case "01 - CAN":
-      return "expedicao@modular.com.br, coletas@modular.com.br, luiz.oliveira@modular.com.br, felipe.ranzan@modular.com.br, lipe@modular.com.br";
+      return "camila.becker01@gmail.com";
     case "03 - SAO":
       return "expedicaosp@modular.com.br, coletassp@modular.com.br, marcos.marques@modular.com.br, eder@modular.com.br";
     case "04 - RIO":
