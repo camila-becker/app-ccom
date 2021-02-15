@@ -49,6 +49,12 @@ routes.post(
   OcorrenciasController.store
 );
 
+routes.post(
+  "/api/ocorrencia-operacional",
+  AuthController.validateSession,
+  OcorrenciasController.storeOcOperacional
+);
+
 //Deletar ocorrência
 routes.delete(
   "/api/ocorrencia/:id",
