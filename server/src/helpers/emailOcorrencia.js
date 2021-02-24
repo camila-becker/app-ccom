@@ -7,7 +7,7 @@ function emailPorFilial(filial) {
     case "04 - RIO":
       return "expedicaorio@modular.com.br, operacionalrio@modular.com.br, monitoramentorio@modular.com.br, catia.pereira@modular.com.br";
     case "05 - CXS":
-      return "expedicao.cxs@modular.com.br, antonio.conceicao@modular.com.br, moises.salib@modular.com.br";
+      return "expedicao.cxs@modular.com.br, antonio.conceicao@modular.com.br, sidiclei.almeida@modular.com.br, moises.salib@modular.com.br";
     case "06 - CTB":
       return "expedicaoctba@modular.com.br, coletasctba@modular.com.br, supervisor.ctba@modular.com.br, everton.morais@modular.com.br";
     case "13 - FOR":
@@ -21,7 +21,7 @@ function emailPorFilial(filial) {
     case "64 - JOI":
       return "expedicaojoi@modular.com.br, coletasjoi@modular.com.br, willian.dutra@modular.com.br, gilnei.matias@modular.com.br";
     case "65 - BHZ":
-      return "expedicaobhz@modular.com.br, sergio.santos@modular.com.br, clodoaldo.ribeiro@modular.com.br, rogerio.rosa@modular.com.br";
+      return "expedicaobhz@modular.com.br, sergio.santos@modular.com.br, clodoaldo.ribeiro@modular.com.br";
     case "66 - VIX":
       return "expedicaovix@modular.com.br, coletasvix@modular.com.br, regiani.bobbio@modular.com.br";
     case "67 - REC":
