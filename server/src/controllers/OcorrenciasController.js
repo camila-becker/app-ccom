@@ -91,7 +91,9 @@ module.exports = {
         Caso aconteça algum sinistro, <strong>NÃO</strong> haverá cobertura de seguro.
       </p>
       <p>Não é necessário responder esse e-mail, apenas corrigir o problema o mais breve possível.</p>
-      <p></p>
+      <p>
+        Veículos da <strong>FROTA</strong>, devem ter SMP em monitoramento, independente do valor da carga!
+      </p>
       <p style="color: red">
         <strong>ATENÇÃO!</strong> Ao lançar a SMP é necessário verificar se no clicktrans aparece
         a mensagem <strong>SMP APROVADA PARA MONITORAMENTO</strong>, se não estiver com essa mensagem,
