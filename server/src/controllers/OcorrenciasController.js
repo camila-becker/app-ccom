@@ -98,6 +98,10 @@ module.exports = {
         significa que a SMP ainda não está em monitoramento, sendo assim, o veículo <strong>NÃO</strong>
         deve ser liberado para viagem!
       </p>
+      <p style="color: red">
+        A mensagem <strong>SMP GERADA COM SUCESSO</strong> significa que ela foi enviada para gerenciadora,
+        <strong>NÃO</strong> significa que ela está em <strong>monitoramento!</strong>
+      </p>
     `;
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
