@@ -71,7 +71,7 @@ module.exports = {
         usuario,
       } = req.body;
       const output = `
-      <p>${motivo} - ${origem} / <strong>${placa ? placa : ""}</strong></p>
+      <p><strong>Solicitamos a correção com urgência!</strong></p>
       <h3>Dados da ocorrência</h3>
       <ul>
         <li><strong>Placa:</strong> ${placa ? placa : ""}</li>
@@ -106,7 +106,7 @@ module.exports = {
           from: "ccom.ocorrencias@gmail.com",
           to: `${emailPorFilial(origem)}`,
           cc:
-            "ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br",
+            "ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, jessica.maiser@modular.com.br, alberi.silva@modular.com.br",
           subject: `Registro de Ocorrência - ${motivo} ${placa} / ${origem}`,
           text: "",
           html: output,
