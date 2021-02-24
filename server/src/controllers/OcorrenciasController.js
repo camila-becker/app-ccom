@@ -91,6 +91,13 @@ module.exports = {
         Caso aconteça algum sinistro, <strong>NÃO</strong> haverá cobertura de seguro.
       </p>
       <p>Não é necessário responder esse e-mail, apenas corrigir o problema o mais breve possível.</p>
+      <p></p>
+      <p style="color: red">
+        <strong>ATENÇÃO!</strong> Ao lançar a SMP é necessário verificar se no clicktrans aparece
+        a mensagem <strong>SMP APROVADA PARA MONITORAMENTO</strong>, se não estiver com essa mensagem,
+        significa que a SMP ainda não está em monitoramento, sendo assim, o veículo <strong>NÃO</strong>
+        deve ser liberado para viagem!
+      </p>
     `;
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
