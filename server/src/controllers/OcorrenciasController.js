@@ -1,5 +1,8 @@
 const nodemailer = require("nodemailer");
-const { emailPorFilial } = require("../helpers/emailOcorrencia");
+const {
+  emailPorFilial,
+  verificarMotivo,
+} = require("../helpers/emailOcorrencia");
 const Ocorrencias = require("../models/Ocorrencias");
 
 module.exports = {
@@ -91,19 +94,7 @@ module.exports = {
         Caso aconteça algum sinistro, <strong>NÃO</strong> haverá cobertura de seguro.
       </p>
       <p>Não é necessário responder esse e-mail, apenas corrigir o problema o mais breve possível.</p>
-      <p>
-        Veículos da <strong>FROTA</strong>, devem ter SMP em monitoramento, independente do valor da carga!
-      </p>
-      <p style="color: red">
-        <strong>ATENÇÃO!</strong> Ao lançar a SMP é necessário verificar se no clicktrans aparece
-        a mensagem <strong>SMP APROVADA PARA MONITORAMENTO</strong>, se não estiver com essa mensagem,
-        significa que a SMP ainda não está em monitoramento, sendo assim, o veículo <strong>NÃO</strong>
-        deve ser liberado para viagem!
-      </p>
-      <p style="color: red">
-        A mensagem <strong>SMP GERADA COM SUCESSO</strong> significa que ela foi enviada para gerenciadora,
-        <strong>NÃO</strong> significa que ela está em <strong>monitoramento!</strong>
-      </p>
+      ${verificarMotivo(motivo)};
     `;
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -118,8 +109,7 @@ module.exports = {
         .sendMail({
           from: "ccom.ocorrencias@gmail.com",
           to: `${emailPorFilial(origem)}`,
-          cc:
-            "ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, jessica.maiser@modular.com.br, alberi.silva@modular.com.br",
+          cc: `${emailPorFilial(origem)}`,
           subject: `Registro de Ocorrência - ${motivo} ${placa} / ${origem}`,
           text: "",
           html: output,

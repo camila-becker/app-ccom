@@ -1,5 +1,7 @@
 function emailPorFilial(filial) {
   switch (filial) {
+    case "07 - BLU":
+      return "camila.becker01@gmail.com";
     case "01 - CAN":
       return "expedicao@modular.com.br, coletas@modular.com.br, luiz.oliveira@modular.com.br, felipe.ranzan@modular.com.br, lipe@modular.com.br";
     case "03 - SAO":
@@ -33,4 +35,29 @@ function emailPorFilial(filial) {
   }
 }
 
-module.exports = { emailPorFilial };
+function verificarMotivo(motivo) {
+  if (
+    motivo === "VIA sem SMP (Modular)" ||
+    motivo === "E/C sem SMP (Modular)"
+  ) {
+    return `
+    <p>
+      Veículos da <strong>FROTA</strong>, devem ter SMP em monitoramento, independente do valor da carga!
+    </p>
+    <p style="color: red">
+      <strong>ATENÇÃO!</strong> Ao lançar a SMP é necessário verificar se no clicktrans aparece
+      a mensagem <strong>SMP APROVADA PARA MONITORAMENTO</strong>, se não estiver com essa mensagem,
+      significa que a SMP ainda não está em monitoramento, sendo assim, o veículo <strong>NÃO</strong>
+      deve ser liberado para viagem!
+    </p>
+    <p style="color: red">
+      A mensagem <strong>SMP GERADA COM SUCESSO</strong> significa que ela foi enviada para gerenciadora,
+      <strong>NÃO</strong> significa que ela está em <strong>monitoramento!</strong>
+    </p>
+    `;
+  } else {
+    return "";
+  }
+}
+
+module.exports = { emailPorFilial, verificarMotivo };
