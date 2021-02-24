@@ -94,7 +94,7 @@ module.exports = {
         Caso aconteça algum sinistro, <strong>NÃO</strong> haverá cobertura de seguro.
       </p>
       <p>Não é necessário responder esse e-mail, apenas corrigir o problema o mais breve possível.</p>
-      ${verificarMotivo(motivo)};
+      ${verificarMotivo(motivo)}
     `;
       let transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
