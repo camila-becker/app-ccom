@@ -1,7 +1,5 @@
 const EmailFiliais = require("../models/EmailFiliais");
 
-let emailTeste = [];
-
 module.exports = {
   async index(req, res) {
     try {
@@ -31,13 +29,18 @@ module.exports = {
     }
   },
 
-  store(req, res) {
+  async store(req, res) {
     try {
-      const { filial, email } = req.body;
-      if (filial === "01 - CAN") {
-        emailTeste.push(email);
-      }
-      return console.log(emailTeste);
+      const { filial, email, nome, usuario } = req.body;
+
+      const emailFiliais = await EmailFiliais.create({
+        filial,
+        email,
+        nome,
+        usuario,
+        data: Date.now(),
+      });
+      return res.json(emailFiliais);
     } catch (error) {
       res.status(500).json({ message: error });
     }
