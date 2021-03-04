@@ -152,4 +152,4 @@ module.exports = routes;
 //Cadastrar e-mail
 routes.post("/api/parametros", EmailFiliaisController.store);
 //Obter todos os e-mails
-routes.get("/api/email-filial", EmailFiliaisController.getEmailFilial);
+routes.get("/api/email-filial", EmailFiliaisController.index);
