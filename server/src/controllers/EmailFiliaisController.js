@@ -1,5 +1,6 @@
 const EmailFiliais = require("../models/EmailFiliais");
-const emailScript = require("../helpers/emailCAN");
+
+let emailTeste = [];
 
 module.exports = {
   async index(req, res) {
@@ -30,13 +31,13 @@ module.exports = {
     }
   },
 
-  async store(req, res) {
+  store(req, res) {
     try {
       const { filial, email } = req.body;
       if (filial === "01 - CAN") {
-        emailScript.push(email);
+        emailTeste.push(email);
       }
-      return res.json(email);
+      return console.log(emailTeste);
     } catch (error) {
       res.status(500).json({ message: error });
     }
