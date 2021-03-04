@@ -11,6 +11,7 @@ const RegistrarChecklistController = require("./controllers/RegistrarChecklistCo
 const RelatoriosController = require("./controllers/RelatoriosController");
 const ViagemController = require("./controllers/ViagemController");
 const DDRController = require("./controllers/DDRController");
+const EmailFiliaisController = require("./controllers/EmailFiliaisController");
 
 //Login
 routes.post("/api/login", AuthController.authenticate);
@@ -146,3 +147,7 @@ routes.put("/api/ddr/:id", DDRController.update);
 //Deletar DDR
 routes.delete("/api/ddr/:id", DDRController.delete);
 module.exports = routes;
+
+/* Email Filiais */
+//Cadastrar e-mail
+routes.post("/api/parametros", EmailFiliaisController.store);

@@ -8,6 +8,7 @@ const Usuarios = require("../models/Usuarios");
 const SolicitarChecklist = require("../models/SolicitarChecklist");
 const Viagem = require("../models/Viagem");
 const DDRModel = require("../models/DDR");
+const EmailFiliais = require("../models/EmailFiliais");
 
 const conexao = new Sequelize(dbConfig);
 
@@ -18,5 +19,6 @@ Usuarios.init(conexao);
 SolicitarChecklist.init(conexao);
 Viagem.init(conexao);
 DDRModel.init(conexao);
+EmailFiliais.init(conexao);
 
 module.exports = conexao;
