@@ -72,9 +72,7 @@ module.exports = {
         tipo,
         registro,
         usuario,
-        email,
       } = req.body;
-      console.log(email);
       const output = `
       <p><strong>Solicitamos a correção com urgência!</strong></p>
       <h3>Dados da ocorrência</h3>
@@ -110,8 +108,9 @@ module.exports = {
       transporter
         .sendMail({
           from: "ccom.ocorrencias@gmail.com",
-          to: `${email}`,
-          cc: "camila.becker01@gmail.com",
+          to: `${emailPorFilial(origem)}`,
+          cc:
+            "ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, jessica.maiser@modular.com.br, alberi.silva@modular.com.br",
           subject: `Registro de Ocorrência - ${motivo} ${placa} / ${origem}`,
           text: "",
           html: output,

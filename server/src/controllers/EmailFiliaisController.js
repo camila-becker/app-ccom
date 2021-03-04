@@ -1,4 +1,5 @@
 const EmailFiliais = require("../models/EmailFiliais");
+const emailScript = require("../helpers/emailCAN");
 
 module.exports = {
   async index(req, res) {
@@ -31,15 +32,11 @@ module.exports = {
 
   async store(req, res) {
     try {
-      const { filial, email, nome, usuario } = req.body;
-      const emailFiliais = await EmailFiliais.create({
-        filial,
-        email,
-        nome,
-        usuario,
-        data: Date.now(),
-      });
-      return res.json(emailFiliais);
+      const { filial, email } = req.body;
+      if (filial === "01 - CAN") {
+        emailScript.push(email);
+      }
+      return res.json(email);
     } catch (error) {
       res.status(500).json({ message: error });
     }
