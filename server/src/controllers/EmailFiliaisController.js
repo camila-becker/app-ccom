@@ -13,6 +13,22 @@ module.exports = {
     }
   },
 
+  async getEmailFilial(req, res) {
+    try {
+      const { filial } = req.query;
+      const emailFiliais = await emailFiliais.findAll({
+        where: {
+          filial: {
+            [Op.eq]: filial,
+          },
+        },
+      });
+      return res.json(emailFiliais);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async store(req, res) {
     try {
       const { filial, email, nome, usuario } = req.body;
