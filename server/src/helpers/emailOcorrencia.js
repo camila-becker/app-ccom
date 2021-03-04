@@ -25,7 +25,7 @@ function emailPorFilial(filial) {
     case "66 - VIX":
       return "expedicaovix@modular.com.br, coletasvix@modular.com.br, regiani.bobbio@modular.com.br";
     case "67 - REC":
-      return "expedicaorec@modular.com.br lidia.oliveira@modular.com.br";
+      return "expedicaorec@modular.com.br, lidia.oliveira@modular.com.br, leandro.silva@modular.com.br";
     case "68 - MCZ":
       return "sacmcz@modular.com.br, danilo.lima@modular.com.br";
     case "94 - AAX":
