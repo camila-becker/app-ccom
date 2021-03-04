@@ -74,6 +74,7 @@ module.exports = {
         usuario,
         email,
       } = req.body;
+      console.log(email);
       const output = `
       <p><strong>Solicitamos a correção com urgência!</strong></p>
       <h3>Dados da ocorrência</h3>
