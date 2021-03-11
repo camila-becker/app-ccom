@@ -110,7 +110,7 @@ module.exports = {
           from: "ccom.ocorrencias@gmail.com",
           to: `${emailPorFilial(origem)}`,
           cc:
-            "ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, jessica.maiser@modular.com.br, alberi.silva@modular.com.br",
+            "ccom.controle@modular.com.br, ccom.gestao@modular.com.br, giulian@modular.com.br, jessica.maiser@modular.com.br, alberi.silva@modular.com.br, rice@modular.com.br",
           subject: `Registro de Ocorrência - ${motivo} ${placa} / ${origem}`,
           text: "",
           html: output,
