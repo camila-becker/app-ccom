@@ -14,10 +14,11 @@ module.exports = {
     try {
       const { usuario, senha } = req.body;
       const user = await Usuarios.findOne({ where: { usuario } });
+      const validPassword = await bcrypt.compare(senha, user.senha);
       if (!user) {
         return res.status(400).send({ message: "Usuário não encontrado!" });
       }
-      if (!bcrypt.compare(senha, user.senha)) {
+      if (!validPassword) {
         return res.status(400).send({ message: "Senha inválida!" });
       }
       res.status(200).send({
